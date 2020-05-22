@@ -1,0 +1,1 @@
+schtasks /create /tn "DailyDatabaseBackupTask" /tr "PATH_TO_PYTHON_EXE PATH_TO_PYTHON_SCRIPT" /sc daily /st 02:00
