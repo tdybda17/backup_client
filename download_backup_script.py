@@ -12,14 +12,16 @@ credentials_path = 'credentials.json'
 
 today_str = str(date.today())  # current date in format YYYY-MM-DD
 backup_output_path = 'path/to/backups/' + today_str + '-backup.tar.gz'
+date = '2020-04-04'
 
 with open(credentials_path) as json_file:
     config = json.load(json_file)
+
 r = requests.get(
     url=url,
     verify=False,
     stream=True,
-    headers={'USER': config.get('USERNAME'), 'PASS': config.get('PASSWORD')}
+    headers={'USER': config.get('USERNAME'), 'PASS': config.get('PASSWORD'), 'Date': date},
 )
 r.raw.decode_content = True
 with open(backup_output_path, 'wb') as f:
